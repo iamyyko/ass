@@ -15,7 +15,7 @@ app.config.update(dict(
 	SECRET_KEY='development key',
 	USERNAME='admin',
 	PASSWORD='default'
-))
+	))
 app.config.from_envvar('flask_setting',silent=True)
 
 def connect_db():
@@ -52,7 +52,7 @@ def before_request():
 	g.user = None
 	if 'id' in session:
 		g.user = query_db('select * from user where id = ?', [session['id']], one=True)
-		
+
 @app.teardown_request
 def teardown_request(exception):
 	"""디비 닫음"""
@@ -62,8 +62,6 @@ def teardown_request(exception):
 @app.route('/register', methods=['GET', 'POST'])
 def register():
 	"""신규 가입"""
-	if g.user:
-		return redict(url_for('main'))
 	error = None
 	if request.method == 'POST':
 		"""입력값 검사, 아이디에 대해선 수정 필요"""
@@ -71,14 +69,11 @@ def register():
 			error = '아이디를 입력하세요.'
 		elif not request.form['password']:
 			error = '비밀번호를 입력하세요.'
-		elif request.form['password'] != request.form['password2']:
-			error = '입력하신 두 비밀번호가 다릅니다.'
 		elif get_user_id(request.form['username']) is not None:
 			error = '사용할 수 없는 아이디 입니다.'
 		else:
 			g.db.execute('''insert into user (username, password) values (?,?)''', [request.form['username'],generate_password_hash(request.form['password'])])
 			g.db.commit()
-			flash('성공적으로 가입되었습니다.')
 			return redirect(url_for('main'))
 	return render_template('register.html', error=error)
 
@@ -87,7 +82,7 @@ def register():
 """메인 화면"""
 @app.route('/')
 def main():
-    return render_template('main.html')
+	return render_template('main.html')
 
 """로그인 로그아웃"""
 @app.route('/login', methods=['GET', 'POST'])
@@ -97,20 +92,31 @@ def login():
 		user = query_db('''select * from user where username = ?''',[request.form['username']], one=True)
 		if user is None:
 			error = '그런 아이디는 존재하지 않습니다.'
-		elif not check_password_hash(user['password'], request.form['username']):
+		elif not check_password_hash(user['password'], request.form['password']):
 			error = '비밀 번호가 잘못되었습니다.'
 		else:
-			flash('로그인 성공')
 			session['id'] = user['id']
+			session['username'] = user['username']
 			return redirect(url_for('main'))
-	return render_template('main.html', error=error)
+	return render_template('login.html', error=error)
 
 @app.route('/logout')
 def logout():
-	session.pop('logged_in', None)
-	flash('You were logged out')
-	return redirect(url_for('show_user'))
+	session.pop('id', None)
+	return redirect(url_for('main'))
 
+"""just redirection"""
+@app.route('/location')
+def location():
+	return render_template('location.html')
+
+@app.route('/noryangjin')
+def noryangjin():
+	return render_template('noryangjin.html')
+
+@app.route('/sillim')
+def sillim():
+	return render_template('sillim.html')
 
 if __name__ == '__main__':
-    app.run()
+	a

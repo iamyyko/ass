@@ -1,14 +1,38 @@
 <!document html>
 <html>
-<head>회원가입</head>
+<head>
+
+</head>
 <body>
-<h2>회원가입</h2>
-{% if error%}<div class="error">Error: {{error}}</div>{%endif%}
-<form action="" method='POST'>
-	username:<input type="text" name="username" value="{{request.form.username}}">
-	비밀번호:<input type="password" name="password" value="{{request.form.password}}">
-	비밀번호 확인:<input type="password" name="password2" value="{{request.form.password2}}"> 
-	<input type="submit" value="가입하기">
-</form>
+<div class="md">
+	{% if error%}<div class="error">Error: {{error}}</div>{%endif%}
+	<h3>*표시는 필수 입력 사항입니다.</h3>
+	<form action="{{url_for('register')}}" method='POST'>
+		<table>
+			<tr>
+				<td>아이디: </td><td><input type="text" name="username"> *</td>
+			</tr>
+			<tr>
+				<td>비밀번호: </td><td><input type="password" name="password"> *</td>
+			</tr>
+			<tr>
+				<td>비밀번호 확인: </td><td><input type="password" name="password"> *</td>
+			</tr>
+			<!--			<tr>
+				<td>이메일주소: </td><td><input type="text" name="username"> </td>
+			</tr>
+			<tr>
+				<td>전화번호: </td><td><input type="text" name="username"> </td>
+			</tr>
+			<tr>
+				<td>공부지역: </td><td><input type="text" name="username"> </td>
+			</tr>
+			<tr>
+				<td>시험 응시 유형: </td><td><input type="text" name="username"> </td>
+			</tr>-->
+		</table>
+		<input id="rbtn" class="btn btn-primary" type="submit" value="가입하기">
+	</form>
+</div>
 </body>
 <html>	

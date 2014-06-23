@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block title%}지역 선택{% endblock %}
+{% block body%}
+
+<h1>지역 선택</h2>
+<ul class="thumbnails">
+	<li class="span4">
+		<div class="thumbnail">
+			<img src="/static/image/about.jpg" alt"">
+			<h3>노량진</h3>
+			<p>노량진 시험 유형과 간략한 설명</p>
+			<p>노량진 시험 유형과 간략한 설명</p>
+			<p>노량진 시험 유형과 간략한 설명</p>
+			<p>
+			<a class="btn btn-primary btn-large" href="{{url_for('noryangjin')}}">
+			스터디 알아보기
+			</a></p>
+		</div>
+	</li>
+	<li class="span4">
+		<div class="thumbnail">
+			<img src="/static/image/main.jpg" alt"">
+			<h3>신림</h3>
+			<p>신림 시험 유형과 간략한 설명</p>
+			<p>신림 시험 유형과 간략한 설명</p>
+			<p>신림 시험 유형과 간략한 설명</p>
+			<p>
+			<a class="btn btn-primary btn-large" href="{{url_for('sillim')}}">
+			스터디 알아보기
+			</a></p>
+		</div>
+	</li>
+{% endblock%}

@@ -2,60 +2,27 @@
 	-webkit-text-size-adjust: none;
 	max-width: 100%;
 }
-html {
-	overflow-x: hidden;
-}
 body {
 	overflow-x: hidden;
+	text-align: center;
+	padding-top: 40px;
 }
-/* top & login */
-.top{
-	position: relative;
-}
-.top img{
-	width: 100%;
-}
+/* login */
 .login{
 	position: absolute;
 	top: 150px;
 	left: 100px;
-	border: 1px solid #fff;
-	text-align: right;
+	text-align: center;
 	padding: 10px;
 	box-shadow: 0 2px 10px ;
 }
-.login input{
-	margin-bottom: 2px;
-	width: 150px;
-}
-/* main logo */
-.logo{
+/* 서비스 시작하기 버튼 */
+.startservice{
+	font-size: 4em;
 	position: absolute;
-	top: 50px;
+	top: 500px;
 	left: 100px;
-	border: 1px solid #fff;
-	padding: 30px;
-	box-shadow: 0 2px 10px ;
-}
-/* 메뉴바, 메인 이미지 */
-.my_menu{
-	position: fixed;
-	top: 2%;
-	left: 60%;
-}
-.my_menu ul{
-	list-style: none;
-	margin: 0;
-	}
-.my_menu li{
-	margin-right: 10px;
-	float: left;
-	border: 1px solid #fff;
-	padding: 10px;
-}
-.my_menu a{
-	text-decoration: none;
-	color: #fff;
+	cursor: pointer;
 }
 
 /* 각 내용 사이 제목 */
@@ -72,3 +39,25 @@ body {
 .contents{
 	width:100%;
 }
+/* 썸네일 정렬하기 위한 효과 */
+.span4{
+	float: none;
+	margin: 0 auto;
+}
+.thumbnails{
+	margin-top: 50px;
+	text-align:center;
+	margin-left: 15%;
+}
+/* 회원가입, 로그인 모달 효과 */
+.md{
+	text-align: left;
+	width: 100%;
+}
+#rbtn{
+	float:right;
+}
+.md input{
+	margin-bottom: 2px;
+}
+

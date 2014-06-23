@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>신림 시험 유형</h2><br>
+<a class="btn btn-primary btn-large" href="{{url_for('location')}}">지역선택 다시하기</a>
+<ul class="thumbnails">
+	<li class="span4">
+		<div class="thumbnail">
+			<img src="/static/image/about.jpg" alt"">
+			<h3>시험1</h3>
+			<p>신림 시험 유형과 간략한 설명</p>
+			<p> <a class="btn btn-primary btn-large" href="{{url_for('noryangjin')}}">
+			스터디 알아보기
+			</a></p>
+		</div>
+	</li>
+	<li class="span4">
+		<div class="thumbnail">
+			<img src="/static/image/main.jpg" alt"">
+			<h3>시험2</h3>
+			<p>신림 시험 유형과 간략한 설명</p>
+			<p> <a class="btn btn-primary btn-large" href="{{url_for('sillim')}}">
+			스터디 알아보기
+			</a></p>
+		</div>
+	</li>
+	<li class="span4">
+		<div class="thumbnail">
+			<img src="/static/image/yuna.jpg" alt"">
+			<h3>시험3</h3>
+			<p>신림 시험 유형과 간략한 설명</p>
+			<p> <a class="btn btn-primary btn-large" href="{{url_for('sillim')}}">
+			스터디 알아보기
+			</a></p>
+		</div>
+	</li>
+	<li class="span4">
+		<div class="thumbnail">
+			<img src="/static/image/contact.jpg" alt"">
+			<h3>시험4</h3>
+			<p>신림 시험 유형과 간략한 설명</p>
+			<p> <a class="btn btn-primary btn-large" href="{{url_for('sillim')}}">
+			스터디 알아보기
+			</a></p>
+		</div>
+	</li>
+</ul>
+{% endblock %}
