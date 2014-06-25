@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>스터디 검색, 생성</h1>
+<h2>현재 지역, 시험 관계없이 테스트중</h2>
+<div class="accordion">
+	<div class="accordion-group">
+		<div class="accordion-heading">
+			<a class="accordion-toggle" data-toggle="collapse" data-target="#demo">스터디 만들기
+			</a>
+		</div>
+		<div id="demo" class="collapse">
+			<div class="accordion-inner">
+				<form action="{{url_for('studyroom')}}" method="POST">
+					<div class="row-fluid">
+						<div class="span3">
+							<input type="text" name="title" placeholder="제목">
+						</div>
+						<div class="span3">
+							<input type="text" name="location" placeholder="지역">
+						</div>
+						<div class="span3">
+							<input type="text" name="test_type" placeholder="시험유형">
+						</div>
+						<div class="span3">
+							<input type="text" name="only_woman" placeholder="여성전용유무">
+						</div>
+					</div>
+					<div class="row-fluid">
+						<div class="span3">
+							<input type="text" name="" placeholder="가능한 시간">
+						</div>
+						<div class="span3">
+							<input type="text" name="subject" placeholder="과목">
+						</div>
+						<div class="span3">
+							<input type="text" name="" placeholder="옵션1">
+						</div>
+						<div class="span3">
+							<input type="text" name="" placeholder="옵션2">
+						</div>
+					</div>
+					<div class="row-fluid">
+						<div class="span12">
+							<textarea class="span12" name="contents" rows="5"placeholder="스터디 설명"></textarea>
+						</div>
+					</div>
+					<button type="submit" class="btn btn-success">스터디 생성</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<h3>스터디 목록</h3>
+<div class="contents">
+	<div class="accordion-heading">asdfasdfad </div>
+	{% if study %}
+	{% for row in study[::-1] %}
+	<div class="accordion">
+		<div class="accordion-group">
+			<div class="accordion-heading">
+				<a class="accordion-toggle" data-toggle="collapse" data-target="#{{row['id']}}">{{row['title']}}</a>
+			</div>
+			<div id="{{row['id']}}" class="collapse">
+				<div class="accordion-inner">
+					<div class="row">
+						<div class="span12">
+							<h3>{{row['contents']}}</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+	{% endif %}
+</div>
+{% endblock %}
+
