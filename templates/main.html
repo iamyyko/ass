@@ -69,17 +69,6 @@
 <div class="login">
 	<h3>ASSISTUDY</h3>
 	<img src="/static/image/logo.png"><br>
-	{% with flashes = get_flashed_messages() %}
-	{% if flashes %}
-	<ul class=flashes>
-		{% for message in flashes %}
-		<li>{{ message }}
-		{% endfor %}
-	</ul>
-	{% endif %}
-	{% endwith %}
-
-	{% if error%}<div class="error">Error: {{error}}</div>{%endif%}
 	<!--	에러와 플래쉬에 관한 출력-->
 	{% if not session.id %}
 	<!--로그인 모달 -->

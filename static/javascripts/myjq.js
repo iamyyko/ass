@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	/* 메뉴바 마우스 오버시 활성화 */
+	/* 메뉴바 마우스 오버시 활성화 
 	$('li').hover(
 		function(){
 			$(this).css("background-color","black");
@@ -7,7 +7,7 @@ $(document).ready(function(){
 		function(){
 			$(this).css("background-color","transparent");
 		}
-		);
+		);*/
 	/* 부드러운 스크롤 이동 */
 	$('a[href^="#"]').on('click',function (e) {
 		e.preventDefault();

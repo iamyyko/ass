@@ -105,6 +105,17 @@ def logout():
 	session.pop('id', None)
 	return redirect(url_for('main'))
 
+@app.route('/studyroom', methods=['GET','POST'])
+def studyroom():
+	if request.method == 'POST':
+		g.db.execute('''insert into study (title, location, test_type, only_woman, subject, contents) values (?,?,?,?,?,?)''', [request.form['title'],request.form['location'],request.form['test_type'],request.form['only_woman'],request.form['subject'],request.form['contents']])
+		g.db.commit()
+		return redirect(url_for('studyroom'))
+		
+	study = query_db('''select * from study''')
+	l = len(study)
+	return render_template('make_study.html',study=study,l=l) 
+
 """just redirection"""
 @app.route('/location')
 def location():
@@ -119,4 +130,4 @@ def sillim():
 	return render_template('sillim.html')
 
 if __name__ == '__main__':
-	a
+	app.run()
